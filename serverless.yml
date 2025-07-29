@@ -1,0 +1,29 @@
+org: null
+app: null
+
+service: portfolio-admin-upload
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+  environment:
+    SECRET_ACCESS_KEY_PATH: ${env:SECRET_ACCESS_KEY_PATH}
+
+functions:
+  healthCheck:
+    handler: src/handlers/handler.healthCheck
+    events:
+      - http:
+          path: healthCheck
+          method: get
+          cors: true
+  verifyAccessKey:
+    handler: src/handlers/verifyAccessKey.verifyAccessKey
+    events:
+      - http:
+          path: verifyAccessKey
+          method: post
+          cors: true
+plugins:
+  - serverless-dotenv-plugin

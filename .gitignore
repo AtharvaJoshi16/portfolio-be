@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+.pnpm-debug.log
+
+# dotenv (secrets!)
+.env
+.env.*   # optional if you use .env.development, .env.production, etc.
+
+# Serverless Framework
+.serverless/
+.sls-next/       # only if using serverless-next.js
+.sls-offline/    # optional if using serverless-offline plugin
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# TypeScript (if applicable)
+dist/
+build/
+*.tsbuildinfo
+
+# AWS SAM/CloudFormation (optional)
+.aws-sam/
+cdk.out/
+
+# Misc
+coverage/
