@@ -13,7 +13,7 @@ export const uploadResume = async (event: any) => {
     }
     const params = {
       Bucket: process.env.BUCKET,
-      Key: process.env.RESUME_FILENAME,
+      Key: process.env.RESUME_KEY,
       Body: file.content,
       ContentType: file.contentType,
     };

@@ -6,7 +6,8 @@ export const downloadResume = async (event: any) => {
     const s3 = new S3Client({ region: process.env.REGION });
     const command = new GetObjectCommand({
       Bucket: process.env.BUCKET,
-      Key: process.env.RESUME_FILENAME,
+      Key: process.env.RESUME_KEY,
+      ResponseContentDisposition: `attachment; filename="${process.env.RESUME_FILENAME}"`,
     });
     const url = await getSignedUrl(s3, command, { expiresIn: 120 });
     return {
