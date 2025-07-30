@@ -9,6 +9,10 @@ provider:
   region: ap-south-1
   environment:
     SECRET_ACCESS_KEY_PATH: ${env:SECRET_ACCESS_KEY_PATH}
+    ACCESS_KEY: ${env:ACCESS_KEY}
+    SECRET_ACCESS_KEY: ${env:SECRET_ACCESS_KEY}
+    REGION: ${env:REGION}
+    BUCKET: ${env:BUCKET}
 
 functions:
   healthCheck:
@@ -24,6 +28,20 @@ functions:
       - http:
           path: verifyAccessKey
           method: post
+          cors: true
+  uploadResume:
+    handler: src/handlers/upload.uploadResume
+    events:
+      - http:
+          path: uploadResume
+          method: post
+          cors: true
+  downloadResume:
+    handler: src/handlers/downloadResume.downloadResume
+    events:
+      - http:
+          path: downloadResume
+          method: get
           cors: true
 plugins:
   - serverless-dotenv-plugin

@@ -20,7 +20,9 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.850.0",
     "@aws-sdk/client-ssm": "^3.855.0",
+    "@aws-sdk/s3-request-presigner": "^3.855.0",
     "dotenv": "^17.2.1",
+    "lambda-multipart-parser": "^1.0.1",
     "serverless": "^4.17.2"
   }
 }
